@@ -2,43 +2,59 @@
 
 # DARKVEX
 
-### Crafting intelligent software with purpose.
+### Full-Stack AI Developer
 
-**Full-Stack AI Developer**
-
-Building modern digital experiences with clean design, scalable engineering, and intelligent solutions.
+**Crafting intelligent software with purpose.**
 
 ---
 
-## 🚀 Creations
-
-🧠 **Vision IQ**  
-AI Learning Platform
-
-💰 **Digi Moi**  
-Wedding Finance Platform
-
-🃏 **Memory Card Match**  
-Interactive Browser Game
-
-🍔 **FoodFacts**  
-Nutrition Intelligence Platform
-
----
-
-## 📚 Currently Learning
-
-- React
-- Firebase
-- Node.js
-- Artificial Intelligence
-- C++
-
----
-
-## 📫 Connect
-
-GitHub: https://github.com/darkvex-x
+*"Every great system starts with an idea.
+Every great idea deserves exceptional engineering."*
 
 </div>
 
+<br>
+
+## Identity
+
+```text
+Name      : Elayaraja G
+Alias     : Darkvex
+Role      : Full-Stack AI Developer
+Focus     : AI • Web • Intelligent Systems
+Status    : Building the future...
+```
+
+---
+
+## Creations
+
+### 🧠 Vision IQ
+> AI-powered learning platform.
+
+### 💰 Digi Moi
+> Smart wedding finance management.
+
+### 🃏 Memory Card Match
+> Interactive browser game.
+
+### 🍔 FoodFacts
+> Nutrition information platform.
+
+---
+
+## Current Focus
+
+- Building real-world software
+- Learning Artificial Intelligence
+- Full-Stack Development
+- Clean UI & UX
+- Problem Solving
+
+---
+
+## Connect
+
+GitHub: https://github.com/darkvex-x
+
+> **Design. Build. Improve. Repeat.**
