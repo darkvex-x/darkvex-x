@@ -1,1 +1,1 @@
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 36" preserveAspectRatio="none"><defs><linearGradient id="g"><stop stop-color="#00e5ff" stop-opacity="0"/><stop offset=".5" stop-color="#7c4dff"/><stop offset="1" stop-color="#4dffb8" stop-opacity="0"/></linearGradient></defs><path d="M0 18h470l18-8 18 16 18-8h676" fill="none" stroke="url(#g)" stroke-width="1.5"/><circle cx="600" cy="18" r="4" fill="#00e5ff"><animate attributeName="r" values="3;6;3" dur="2.5s" repeatCount="indefinite"/></circle></svg>
