@@ -1,9 +1,12 @@
 name: Recent Activity
 
-on:
-  schedule:
-    - cron: "15 */6 * * *"
+"on":
   workflow_dispatch:
+  schedule:
+    - cron: "0 */12 * * *"
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write

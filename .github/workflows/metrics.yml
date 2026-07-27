@@ -1,9 +1,12 @@
 name: Profile Metrics
 
-on:
-  schedule:
-    - cron: "30 0 * * *"
+"on":
   workflow_dispatch:
+  schedule:
+    - cron: "0 */12 * * *"
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write
