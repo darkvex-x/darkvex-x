@@ -1,6 +1,6 @@
 name: Recent Activity
 
-"on":
+on:
   workflow_dispatch:
   schedule:
     - cron: "0 */12 * * *"
@@ -10,13 +10,16 @@ name: Recent Activity
 
 permissions:
   contents: write
+  actions: read
 
 jobs:
-  update:
+  activity:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Fetch and render recent public activity
+      - name: Check out the profile repository
+        uses: actions/checkout@v4
+
+      - name: Render recent public activity
         uses: actions/github-script@v7
         with:
           script: |
@@ -24,24 +27,23 @@ jobs:
               username: 'darkvex-x', per_page: 5
             });
             const labels = {
-              PushEvent: 'Pushed updates to', CreateEvent: 'Created',
-              WatchEvent: 'Starred', ForkEvent: 'Forked', IssuesEvent: 'Opened an issue in',
+              PushEvent: 'Pushed updates to', CreateEvent: 'Created', WatchEvent: 'Starred',
+              ForkEvent: 'Forked', IssuesEvent: 'Opened an issue in',
               PullRequestEvent: 'Updated a pull request in'
             };
-            const lines = events.map(event => {
-              const repo = event.repo?.name || 'a repository';
-              const action = labels[event.type] || 'Worked in';
-              return `- \`${action}\` [${repo}](https://github.com/${repo})`;
-            });
-            const activity = lines.length ? `### Recent activity\n\n${lines.join('\n')}` : '';
-            const fs = require('fs');
-            const readme = fs.readFileSync('README.md', 'utf8');
-            const updated = readme.replace(
-              /<!-- RECENT_ACTIVITY:START -->[\s\S]*?<!-- RECENT_ACTIVITY:END -->/,
-              `<!-- RECENT_ACTIVITY:START -->\n${activity}\n<!-- RECENT_ACTIVITY:END -->`
-            );
-            fs.writeFileSync('README.md', updated);
-      - name: Commit refreshed activity
+            const escapeXml = value => String(value).replace(/[&<>"']/g, character => ({
+              '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;'
+            })[character]);
+            const rows = events.length ? events.map((event, index) => {
+              const label = escapeXml(labels[event.type] || 'Worked in');
+              const repo = escapeXml(event.repo?.name || 'a repository');
+              return `<text x="52" y="${92 + index * 34}" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="16"><tspan fill="#4DFFB8">${label}</tspan><tspan fill="#94A3B8">  ${repo}</tspan></text>`;
+            }).join('') : '<text x="52" y="92" fill="#94A3B8" font-family="Arial, sans-serif" font-size="16">No recent public activity available.</text>';
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" role="img" aria-label="Recent GitHub activity"><rect width="1200" height="280" rx="16" fill="#0E1117"/><path d="M0 48h1200" stroke="#263244"/><circle cx="32" cy="24" r="6" fill="#00E5FF"/><text x="52" y="29" fill="#94A3B8" font-family="monospace" font-size="13" letter-spacing="2">RECENT PUBLIC ACTIVITY</text>${rows}</svg>`;
+            require('fs').writeFileSync('activity.svg', svg);
+
+      - name: Commit updated activity image
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: refresh recent activity"
+          commit_message: "chore: update recent activity"
+          file_pattern: activity.svg

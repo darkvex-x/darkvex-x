@@ -85,18 +85,10 @@ Exploring computer vision and generative systems with practical intent.
 
 <p align="center"><img src="https://raw.githubusercontent.com/darkvex-x/darkvex-x/main/metrics.svg" width="100%" alt="GitHub metrics and recent activity" /></p>
 
-<!-- RECENT_ACTIVITY:START -->
-### Recent activity
-
-- `Pushed updates to` [darkvex-x/darkvex-x](https://github.com/darkvex-x/darkvex-x)
-- `Pushed updates to` [darkvex-x/darkvex-x](https://github.com/darkvex-x/darkvex-x)
-- `Pushed updates to` [darkvex-x/darkvex-x](https://github.com/darkvex-x/darkvex-x)
-- `Pushed updates to` [darkvex-x/darkvex-x](https://github.com/darkvex-x/darkvex-x)
-- `Pushed updates to` [darkvex-x/darkvex-x](https://github.com/darkvex-x/darkvex-x)
-<!-- RECENT_ACTIVITY:END -->
+<p align="center"><img src="https://raw.githubusercontent.com/darkvex-x/darkvex-x/main/activity.svg" width="100%" alt="Recent GitHub activity" /></p>
 
 <p align="center">
-  <img src="https://github.com/darkvex-x/darkvex-x/blob/output/github-contribution-grid-snake-dark.svg" width="100%" alt="Contribution activity snake" />
+  <img src="https://raw.githubusercontent.com/darkvex-x/darkvex-x/output/snake.svg" width="100%" alt="Contribution activity snake" />
 </p>
 
 <a id="timeline"></a>

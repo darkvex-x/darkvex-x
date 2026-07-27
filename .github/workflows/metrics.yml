@@ -1,6 +1,6 @@
 name: Profile Metrics
 
-"on":
+on:
   workflow_dispatch:
   schedule:
     - cron: "0 */12 * * *"
@@ -8,8 +8,12 @@ name: Profile Metrics
     branches:
       - main
 
+# METRICS_TOKEN is a fine-grained PAT with read access to the profile and its public
+# repositories. `contents: write` lets the action commit metrics.svg to this repository.
 permissions:
   contents: write
+  actions: read
+  pull-requests: read
 
 jobs:
   metrics:
@@ -18,22 +22,67 @@ jobs:
       - name: Check out the profile repository
         uses: actions/checkout@v4
 
-      - name: Generate visual GitHub metrics
+      - name: Generate metrics with achievements
+        id: metrics_with_achievements
+        continue-on-error: true
         uses: lowlighter/metrics@latest
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.METRICS_TOKEN }}
           user: darkvex-x
           committer_branch: main
           committer_message: "chore: update profile metrics"
           filename: metrics.svg
           template: classic
           base: header, activity, community, repositories, metadata
-          config_timezone: Asia/Calcutta
+          config_timezone: Asia/Kolkata
           plugin_languages: yes
           plugin_languages_limit: 8
           plugin_languages_sections: most-used
           plugin_languages_details: bytes-size, percentage
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
+          plugin_activity: yes
+          plugin_activity_limit: 5
+          plugin_repositories: yes
+          plugin_repositories_featured: darkvex-x/Vision-IQ, darkvex-x/Digi-Moi
           plugin_achievements: yes
           plugin_achievements_threshold: C
+
+      # Metrics may render an "Unexpected error" card without failing the action.
+      # Detect that card (or a failed action) and render again with achievements disabled.
+      - name: Detect an achievements rendering error
+        id: achievement_check
+        shell: bash
+        run: |
+          git fetch origin main --depth=1
+          if [ "${{ steps.metrics_with_achievements.outcome }}" = "failure" ] || \
+             ! git show origin/main:metrics.svg > metrics.svg 2>/dev/null || \
+             grep -qi "unexpected error" metrics.svg; then
+            echo "disable=true" >> "$GITHUB_OUTPUT"
+            echo "Achievements could not be rendered; using the safe metrics configuration."
+          else
+            echo "disable=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate metrics without achievements
+        if: steps.achievement_check.outputs.disable == 'true'
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: darkvex-x
+          committer_branch: main
+          committer_message: "chore: update profile metrics without achievements"
+          filename: metrics.svg
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: Asia/Kolkata
+          plugin_languages: yes
+          plugin_languages_limit: 8
+          plugin_languages_sections: most-used
+          plugin_languages_details: bytes-size, percentage
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
+          plugin_activity: yes
+          plugin_activity_limit: 5
+          plugin_repositories: yes
+          plugin_repositories_featured: darkvex-x/Vision-IQ, darkvex-x/Digi-Moi
