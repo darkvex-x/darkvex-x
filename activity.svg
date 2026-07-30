@@ -1,1 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" role="img" aria-label="Recent GitHub activity"><rect width="1200" height="280" rx="16" fill="#0E1117"/><path d="M0 48h1200" stroke="#263244"/><circle cx="32" cy="24" r="6" fill="#00E5FF"/><text x="52" y="29" fill="#94A3B8" font-family="monospace" font-size="13" letter-spacing="2">RECENT PUBLIC ACTIVITY</text><text x="52" y="92" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="16"><tspan fill="#4DFFB8">Pushed updates to</tspan><tspan fill="#94A3B8">  darkvex-x/darkvex-x</tspan></text><text x="52" y="126" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="16"><tspan fill="#4DFFB8">Pushed updates to</tspan><tspan fill="#94A3B8">  darkvex-x/darkvex-x</tspan></text><text x="52" y="160" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="16"><tspan fill="#4DFFB8">Pushed updates to</tspan><tspan fill="#94A3B8">  darkvex-x/darkvex-x</tspan></text><text x="52" y="194" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="16"><tspan fill="#4DFFB8">Pushed updates to</tspan><tspan fill="#94A3B8">  darkvex-x/darkvex-x</tspan></text><text x="52" y="228" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="16"><tspan fill="#4DFFB8">Pushed updates to</tspan><tspan fill="#94A3B8">  darkvex-x/darkvex-x</tspan></text></svg>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="900"
+     height="250">
+
+  <rect width="100%" height="100%" fill="#0d1117"/>
+
+  <text
+      x="50"
+      y="35"
+      fill="#58a6ff"
+      font-size="22"
+      font-family="Arial"
+      font-weight="bold">
+
+      Recent GitHub Activity
+
+  </text>
+
+  
+  <text x="50" y="80"
+        fill="#ffffff"
+        font-size="16"
+        font-family="Arial">
+    • PushEvent — darkvex-x/darkvex-x
+  </text>
+
+  <text x="50" y="110"
+        fill="#ffffff"
+        font-size="16"
+        font-family="Arial">
+    • PushEvent — darkvex-x/darkvex-x
+  </text>
+
+  <text x="50" y="140"
+        fill="#ffffff"
+        font-size="16"
+        font-family="Arial">
+    • PushEvent — darkvex-x/darkvex-x
+  </text>
+
+  <text x="50" y="170"
+        fill="#ffffff"
+        font-size="16"
+        font-family="Arial">
+    • PushEvent — darkvex-x/darkvex-x
+  </text>
+
+  <text x="50" y="200"
+        fill="#ffffff"
+        font-size="16"
+        font-family="Arial">
+    • PushEvent — darkvex-x/darkvex-x
+  </text>
+
+
+</svg>
