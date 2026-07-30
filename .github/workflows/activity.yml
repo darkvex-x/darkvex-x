@@ -1,4 +1,4 @@
-name: Recent Activity
+name: Profile Metrics
 
 on:
   workflow_dispatch:
@@ -9,54 +9,39 @@ permissions:
   contents: write
 
 jobs:
-  activity:
+  metrics:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Render recent public activity
-        uses: actions/github-script@v7
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Generate GitHub Metrics
+        uses: lowlighter/metrics@latest
         with:
-          script: |
-            const { data: events } = await github.rest.activity.listPublicEventsForUser({
-              username: "darkvex-x",
-              per_page: 5
-            });
+          token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.METRICS_TOKEN }}
 
-            const labels = {
-              PushEvent: "Pushed updates to",
-              CreateEvent: "Created",
-              WatchEvent: "Starred",
-              ForkEvent: "Forked",
-              IssuesEvent: "Opened an issue in",
-              PullRequestEvent: "Updated a pull request in"
-            };
+          user: darkvex-x
 
-            const escapeXml = value => String(value).replace(/[&<>"']/g, character => ({
-              "&": "&amp;",
-              "<": "&lt;",
-              ">": "&gt;",
-              "\"": "&quot;",
-              "'": "&apos;"
-            }[character]));
+          filename: metrics.svg
 
-            const rows = events.length
-              ? events.map((event, index) => {
-                  const label = escapeXml(labels[event.type] || "Worked in");
-                  const repo = escapeXml(event.repo?.name || "a repository");
-                  return `<text x="52" y="${92 + index * 34}" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="16"><tspan fill="#4DFFB8">${label}</tspan><tspan fill="#94A3B8"> ${repo}</tspan></text>`;
-                }).join("")
-              : `<text x="52" y="92" fill="#94A3B8" font-family="Arial, sans-serif" font-size="16">No recent public activity available.</text>`;
+          committer_branch: main
+          committer_message: "chore: update profile metrics"
 
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280"><rect width="1200" height="280" rx="16" fill="#0E1117"/><path d="M0 48h1200" stroke="#263244"/><circle cx="32" cy="24" r="6" fill="#00E5FF"/><text x="52" y="29" fill="#94A3B8" font-family="monospace" font-size="13">RECENT PUBLIC ACTIVITY</text>${rows}</svg>`;
+          template: classic
+          base: header, activity, community, repositories, metadata
 
-            require("fs").writeFileSync("activity.svg", svg);
+          config_timezone: Asia/Kolkata
 
-      - name: Commit updated activity image
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: update recent activity"
-          file_pattern: activity.svg
+          plugin_languages: yes
+          plugin_languages_limit: 8
+          plugin_languages_sections: most-used
+          plugin_languages_details: bytes-size, percentage
+
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
+
+          plugin_activity: yes
+          plugin_activity_limit: 5
+
+          plugin_achievements: yes
