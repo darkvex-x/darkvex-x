@@ -29,21 +29,21 @@
         fill="#ffffff"
         font-size="16"
         font-family="Arial">
-    • PushEvent — darkvex-x/darkvex-x
+    • CreateEvent — darkvex-x/express-middleware-assignment
   </text>
 
   <text x="50" y="140"
         fill="#ffffff"
         font-size="16"
         font-family="Arial">
-    • PushEvent — darkvex-x/darkvex-x
+    • PullRequestEvent — darkvex-x/express-middleware-assignment
   </text>
 
   <text x="50" y="170"
         fill="#ffffff"
         font-size="16"
         font-family="Arial">
-    • PushEvent — darkvex-x/darkvex-x
+    • CreateEvent — darkvex-x/express-middleware-assignment
   </text>
 
   <text x="50" y="200"
