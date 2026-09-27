@@ -15,7 +15,7 @@
 ### 👻 About Me
 
 I am Elayaraja, a CS student at Kalvium, India. Operating from the shadows to build modern, dynamic, and aesthetic web experiences. 
-- 🔭 Currently building: **Vision-IQ**, **Digi-Moi**
+- 🔭 Currently building: **Digi-Moi**
 - 🌱 Currently learning: **Next.js, Advanced TypeScript, System Design**
 - ⚡ Fun fact: I am the *ghost in the code*.
 
