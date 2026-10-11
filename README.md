@@ -71,3 +71,11 @@ I am Elayaraja, a CS student at Kalvium, India. Operating from the shadows to bu
 <img src="https://komarev.com/ghpvc/?username=darkvex-x&color=8b5cf6&style=flat-square&label=PROFILE+VIEWS" alt="Visitor Count" />
 
 </div>
+
+### 🌐 Connect with me
+
+[![Portfolio](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://elayaraja-portfolio-2026.vercel.app/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/elayaraja-g)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/dude_8x.e)
+[![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/u/BugHunter_07/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:elayaraja.g.s.140@kalvium.community)
